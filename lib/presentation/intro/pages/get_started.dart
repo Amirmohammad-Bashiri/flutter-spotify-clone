@@ -5,6 +5,7 @@ import 'package:spotify_clone/common/widgets/button/basic_app_button.dart';
 import 'package:spotify_clone/core/configs/assets/app_images.dart';
 import 'package:spotify_clone/core/configs/assets/app_vectors.dart';
 import 'package:spotify_clone/core/configs/theme/app_colors.dart';
+import 'package:spotify_clone/presentation/choose_mode/pages/choose_mode.dart';
 
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({super.key});
@@ -15,7 +16,6 @@ class GetStartedPage extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            padding: const EdgeInsets.only(bottom: 40, left: 40, right: 40),
             decoration: const BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.fill,
@@ -23,6 +23,17 @@ class GetStartedPage extends StatelessWidget {
                   AppImages.introBackground,
                 ),
               ),
+            ),
+          ),
+          Container(
+            color: Colors.black.withOpacity(0.15),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              bottom: 40,
+              left: 40,
+              right: 40,
+              top: 0,
             ),
             child: SafeArea(
               child: Column(
@@ -56,16 +67,21 @@ class GetStartedPage extends StatelessWidget {
                     height: 20,
                   ),
                   BasicAppButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              const ChooseModePage(),
+                        ),
+                      );
+                    },
                     title: "Get Started",
                     height: 60,
                   ),
                 ],
               ),
             ),
-          ),
-          Container(
-            color: Colors.black.withOpacity(0.15),
           ),
         ],
       ),
